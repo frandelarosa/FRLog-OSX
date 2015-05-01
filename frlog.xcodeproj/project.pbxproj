@@ -1,0 +1,525 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5B53055ED1BD0435EA2FB1EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECCF1AB70FF90148D55F24 /* libPods.a */; };
+		A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */; };
+		A1D92C841AEBE61F003E0B81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C831AEBE61F003E0B81 /* AppDelegate.m */; };
+		A1D92C861AEBE61F003E0B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C851AEBE61F003E0B81 /* main.m */; };
+		A1D92C891AEBE61F003E0B81 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C881AEBE61F003E0B81 /* MainViewController.m */; };
+		A1D92C8B1AEBE61F003E0B81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1D92C8A1AEBE61F003E0B81 /* Images.xcassets */; };
+		A1D92C8E1AEBE61F003E0B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1D92C8C1AEBE61F003E0B81 /* Main.storyboard */; };
+		A1D92C9A1AEBE61F003E0B81 /* frlogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C991AEBE61F003E0B81 /* frlogTests.m */; };
+		A1D92CB61AEBF1E2003E0B81 /* FRTextColor.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92CB31AEBF1E2003E0B81 /* FRTextColor.m */; };
+		A1D92CB71AEBF1E2003E0B81 /* FRTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92CB51AEBF1E2003E0B81 /* FRTextView.m */; };
+		A1D92CBB1AEBF22F003E0B81 /* FRLogServer.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92CBA1AEBF22F003E0B81 /* FRLogServer.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A1D92C941AEBE61F003E0B81 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A1D92C751AEBE61F003E0B81 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A1D92C7C1AEBE61F003E0B81;
+			remoteInfo = frlog;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		A1D92C7D1AEBE61F003E0B81 /* frlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = frlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D92C811AEBE61F003E0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1D92C821AEBE61F003E0B81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		A1D92C831AEBE61F003E0B81 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		A1D92C851AEBE61F003E0B81 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A1D92C871AEBE61F003E0B81 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		A1D92C881AEBE61F003E0B81 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		A1D92C8A1AEBE61F003E0B81 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		A1D92C8D1AEBE61F003E0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		A1D92C931AEBE61F003E0B81 /* frlogTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = frlogTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1D92C981AEBE61F003E0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A1D92C991AEBE61F003E0B81 /* frlogTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = frlogTests.m; sourceTree = "<group>"; };
+		A1D92CB21AEBF1E2003E0B81 /* FRTextColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTextColor.h; sourceTree = "<group>"; };
+		A1D92CB31AEBF1E2003E0B81 /* FRTextColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTextColor.m; sourceTree = "<group>"; };
+		A1D92CB41AEBF1E2003E0B81 /* FRTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRTextView.h; sourceTree = "<group>"; };
+		A1D92CB51AEBF1E2003E0B81 /* FRTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRTextView.m; sourceTree = "<group>"; };
+		A1D92CB91AEBF22F003E0B81 /* FRLogServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogServer.h; sourceTree = "<group>"; };
+		A1D92CBA1AEBF22F003E0B81 /* FRLogServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLogServer.m; sourceTree = "<group>"; };
+		A5ECCF1AB70FF90148D55F24 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBBA760EDA3586B824B36B33 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		C03604A90FB4545D785976ED /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A1D92C7A1AEBE61F003E0B81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B53055ED1BD0435EA2FB1EE /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D92C901AEBE61F003E0B81 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		66E5C6490A7C71EB86CA59C0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A5ECCF1AB70FF90148D55F24 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1D92C741AEBE61F003E0B81 = {
+			isa = PBXGroup;
+			children = (
+				A1D92C7F1AEBE61F003E0B81 /* frlog */,
+				A1D92C961AEBE61F003E0B81 /* frlogTests */,
+				A1D92C7E1AEBE61F003E0B81 /* Products */,
+				B2B5C463C7D819B22535DB67 /* Pods */,
+				66E5C6490A7C71EB86CA59C0 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		A1D92C7E1AEBE61F003E0B81 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92C7D1AEBE61F003E0B81 /* frlog.app */,
+				A1D92C931AEBE61F003E0B81 /* frlogTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A1D92C7F1AEBE61F003E0B81 /* frlog */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92CB81AEBF206003E0B81 /* Server */,
+				A1D92CB11AEBF1E2003E0B81 /* Lib */,
+				A1D92C821AEBE61F003E0B81 /* AppDelegate.h */,
+				A1D92C831AEBE61F003E0B81 /* AppDelegate.m */,
+				A1D92C871AEBE61F003E0B81 /* MainViewController.h */,
+				A1D92C881AEBE61F003E0B81 /* MainViewController.m */,
+				A1D92C8A1AEBE61F003E0B81 /* Images.xcassets */,
+				A1D92C8C1AEBE61F003E0B81 /* Main.storyboard */,
+				A1D92C801AEBE61F003E0B81 /* Supporting Files */,
+			);
+			path = frlog;
+			sourceTree = "<group>";
+		};
+		A1D92C801AEBE61F003E0B81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92C811AEBE61F003E0B81 /* Info.plist */,
+				A1D92C851AEBE61F003E0B81 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1D92C961AEBE61F003E0B81 /* frlogTests */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92C991AEBE61F003E0B81 /* frlogTests.m */,
+				A1D92C971AEBE61F003E0B81 /* Supporting Files */,
+			);
+			path = frlogTests;
+			sourceTree = "<group>";
+		};
+		A1D92C971AEBE61F003E0B81 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92C981AEBE61F003E0B81 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A1D92CB11AEBF1E2003E0B81 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				A1D92CB21AEBF1E2003E0B81 /* FRTextColor.h */,
+				A1D92CB31AEBF1E2003E0B81 /* FRTextColor.m */,
+				A1D92CB41AEBF1E2003E0B81 /* FRTextView.h */,
+				A1D92CB51AEBF1E2003E0B81 /* FRTextView.m */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		A1D92CB81AEBF206003E0B81 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */,
+				A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */,
+				A1D92CB91AEBF22F003E0B81 /* FRLogServer.h */,
+				A1D92CBA1AEBF22F003E0B81 /* FRLogServer.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		B2B5C463C7D819B22535DB67 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C03604A90FB4545D785976ED /* Pods.debug.xcconfig */,
+				BBBA760EDA3586B824B36B33 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A1D92C7C1AEBE61F003E0B81 /* frlog */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1D92C9D1AEBE61F003E0B81 /* Build configuration list for PBXNativeTarget "frlog" */;
+			buildPhases = (
+				BDD07CC06A20E4AD08490825 /* Check Pods Manifest.lock */,
+				A1D92C791AEBE61F003E0B81 /* Sources */,
+				A1D92C7A1AEBE61F003E0B81 /* Frameworks */,
+				A1D92C7B1AEBE61F003E0B81 /* Resources */,
+				BF29EC74F36DF1263E1EEDAD /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = frlog;
+			productName = frlog;
+			productReference = A1D92C7D1AEBE61F003E0B81 /* frlog.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A1D92C921AEBE61F003E0B81 /* frlogTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A1D92CA01AEBE61F003E0B81 /* Build configuration list for PBXNativeTarget "frlogTests" */;
+			buildPhases = (
+				A1D92C8F1AEBE61F003E0B81 /* Sources */,
+				A1D92C901AEBE61F003E0B81 /* Frameworks */,
+				A1D92C911AEBE61F003E0B81 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1D92C951AEBE61F003E0B81 /* PBXTargetDependency */,
+			);
+			name = frlogTests;
+			productName = frlogTests;
+			productReference = A1D92C931AEBE61F003E0B81 /* frlogTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A1D92C751AEBE61F003E0B81 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = "Fran de la Rosa";
+				TargetAttributes = {
+					A1D92C7C1AEBE61F003E0B81 = {
+						CreatedOnToolsVersion = 6.3;
+					};
+					A1D92C921AEBE61F003E0B81 = {
+						CreatedOnToolsVersion = 6.3;
+						TestTargetID = A1D92C7C1AEBE61F003E0B81;
+					};
+				};
+			};
+			buildConfigurationList = A1D92C781AEBE61F003E0B81 /* Build configuration list for PBXProject "frlog" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A1D92C741AEBE61F003E0B81;
+			productRefGroup = A1D92C7E1AEBE61F003E0B81 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A1D92C7C1AEBE61F003E0B81 /* frlog */,
+				A1D92C921AEBE61F003E0B81 /* frlogTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A1D92C7B1AEBE61F003E0B81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D92C8B1AEBE61F003E0B81 /* Images.xcassets in Resources */,
+				A1D92C8E1AEBE61F003E0B81 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D92C911AEBE61F003E0B81 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BDD07CC06A20E4AD08490825 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BF29EC74F36DF1263E1EEDAD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A1D92C791AEBE61F003E0B81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D92CB61AEBF1E2003E0B81 /* FRTextColor.m in Sources */,
+				A1D92C891AEBE61F003E0B81 /* MainViewController.m in Sources */,
+				A1D92C861AEBE61F003E0B81 /* main.m in Sources */,
+				A1D92CB71AEBF1E2003E0B81 /* FRTextView.m in Sources */,
+				A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */,
+				A1D92C841AEBE61F003E0B81 /* AppDelegate.m in Sources */,
+				A1D92CBB1AEBF22F003E0B81 /* FRLogServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1D92C8F1AEBE61F003E0B81 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1D92C9A1AEBE61F003E0B81 /* frlogTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1D92C951AEBE61F003E0B81 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A1D92C7C1AEBE61F003E0B81 /* frlog */;
+			targetProxy = A1D92C941AEBE61F003E0B81 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		A1D92C8C1AEBE61F003E0B81 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A1D92C8D1AEBE61F003E0B81 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A1D92C9B1AEBE61F003E0B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		A1D92C9C1AEBE61F003E0B81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		A1D92C9E1AEBE61F003E0B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C03604A90FB4545D785976ED /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = frlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		A1D92C9F1AEBE61F003E0B81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BBBA760EDA3586B824B36B33 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = frlog/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		A1D92CA11AEBE61F003E0B81 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = frlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/frlog.app/Contents/MacOS/frlog";
+			};
+			name = Debug;
+		};
+		A1D92CA21AEBE61F003E0B81 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = frlogTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/frlog.app/Contents/MacOS/frlog";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A1D92C781AEBE61F003E0B81 /* Build configuration list for PBXProject "frlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D92C9B1AEBE61F003E0B81 /* Debug */,
+				A1D92C9C1AEBE61F003E0B81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1D92C9D1AEBE61F003E0B81 /* Build configuration list for PBXNativeTarget "frlog" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D92C9E1AEBE61F003E0B81 /* Debug */,
+				A1D92C9F1AEBE61F003E0B81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A1D92CA01AEBE61F003E0B81 /* Build configuration list for PBXNativeTarget "frlogTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1D92CA11AEBE61F003E0B81 /* Debug */,
+				A1D92CA21AEBE61F003E0B81 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A1D92C751AEBE61F003E0B81 /* Project object */;
+}
