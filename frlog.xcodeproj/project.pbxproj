@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5B53055ED1BD0435EA2FB1EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECCF1AB70FF90148D55F24 /* libPods.a */; };
+		A11DEDD81AFF56EC00C4261C /* FRObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DEDD71AFF56EC00C4261C /* FRObjectParser.m */; };
 		A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */; };
 		A192C7BF1AFE12E600713D53 /* FRLogServerDataDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A192C7BE1AFE12E600713D53 /* FRLogServerDataDefault.m */; };
 		A192C7C21AFE12F900713D53 /* FRLogServerDataURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A192C7C11AFE12F900713D53 /* FRLogServerDataURL.m */; };
@@ -33,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A11DEDD61AFF56EC00C4261C /* FRObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRObjectParser.h; sourceTree = "<group>"; };
+		A11DEDD71AFF56EC00C4261C /* FRObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRObjectParser.m; sourceTree = "<group>"; };
+		A11DEDDA1AFF5CED00C4261C /* FRLogSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogSettings.h; sourceTree = "<group>"; };
 		A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		A192C7BD1AFE12E600713D53 /* FRLogServerDataDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogServerDataDefault.h; sourceTree = "<group>"; };
@@ -89,6 +93,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		A11DEDD91AFF5CD700C4261C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A11DEDDA1AFF5CED00C4261C /* FRLogSettings.h */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		A192C7BC1AFE12C100713D53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +135,7 @@
 		A1D92C7F1AEBE61F003E0B81 /* frlog */ = {
 			isa = PBXGroup;
 			children = (
+				A11DEDD91AFF5CD700C4261C /* Settings */,
 				A1D92CB81AEBF206003E0B81 /* Server */,
 				A1D92CB11AEBF1E2003E0B81 /* Lib */,
 				A1D92C821AEBE61F003E0B81 /* AppDelegate.h */,
@@ -169,6 +182,8 @@
 				A1D92CB31AEBF1E2003E0B81 /* FRTextColor.m */,
 				A1D92CB41AEBF1E2003E0B81 /* FRTextView.h */,
 				A1D92CB51AEBF1E2003E0B81 /* FRTextView.m */,
+				A11DEDD61AFF56EC00C4261C /* FRObjectParser.h */,
+				A11DEDD71AFF56EC00C4261C /* FRObjectParser.m */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -335,6 +350,7 @@
 				A192C7BF1AFE12E600713D53 /* FRLogServerDataDefault.m in Sources */,
 				A1D92CB71AEBF1E2003E0B81 /* FRTextView.m in Sources */,
 				A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */,
+				A11DEDD81AFF56EC00C4261C /* FRObjectParser.m in Sources */,
 				A1D92C841AEBE61F003E0B81 /* AppDelegate.m in Sources */,
 				A1D92CBB1AEBF22F003E0B81 /* FRLogServer.m in Sources */,
 			);

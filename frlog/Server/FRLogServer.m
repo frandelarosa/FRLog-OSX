@@ -73,7 +73,9 @@
         
         FRLogServerDataDefault *objdata = (FRLogServerDataDefault *)arrData.firstObject;
         
-        NSLog(@"data: %@", objdata);
+        if ([objdata.obj_type integerValue] == FRLSDDefault){
+            [self.delegate onServer:self readData:objdata];
+        }
         
     }
     
