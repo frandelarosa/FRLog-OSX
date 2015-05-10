@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		5B53055ED1BD0435EA2FB1EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECCF1AB70FF90148D55F24 /* libPods.a */; };
 		A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */; };
+		A192C7BF1AFE12E600713D53 /* FRLogServerDataDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A192C7BE1AFE12E600713D53 /* FRLogServerDataDefault.m */; };
+		A192C7C21AFE12F900713D53 /* FRLogServerDataURL.m in Sources */ = {isa = PBXBuildFile; fileRef = A192C7C11AFE12F900713D53 /* FRLogServerDataURL.m */; };
 		A1D92C841AEBE61F003E0B81 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C831AEBE61F003E0B81 /* AppDelegate.m */; };
 		A1D92C861AEBE61F003E0B81 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C851AEBE61F003E0B81 /* main.m */; };
 		A1D92C891AEBE61F003E0B81 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D92C881AEBE61F003E0B81 /* MainViewController.m */; };
@@ -33,6 +35,10 @@
 /* Begin PBXFileReference section */
 		A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		A192C7BD1AFE12E600713D53 /* FRLogServerDataDefault.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogServerDataDefault.h; sourceTree = "<group>"; };
+		A192C7BE1AFE12E600713D53 /* FRLogServerDataDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLogServerDataDefault.m; sourceTree = "<group>"; };
+		A192C7C01AFE12F900713D53 /* FRLogServerDataURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogServerDataURL.h; sourceTree = "<group>"; };
+		A192C7C11AFE12F900713D53 /* FRLogServerDataURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLogServerDataURL.m; sourceTree = "<group>"; };
 		A1D92C7D1AEBE61F003E0B81 /* frlog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = frlog.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D92C811AEBE61F003E0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1D92C821AEBE61F003E0B81 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,6 +87,17 @@
 				A5ECCF1AB70FF90148D55F24 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A192C7BC1AFE12C100713D53 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A192C7BD1AFE12E600713D53 /* FRLogServerDataDefault.h */,
+				A192C7BE1AFE12E600713D53 /* FRLogServerDataDefault.m */,
+				A192C7C01AFE12F900713D53 /* FRLogServerDataURL.h */,
+				A192C7C11AFE12F900713D53 /* FRLogServerDataURL.m */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		A1D92C741AEBE61F003E0B81 = {
@@ -159,6 +176,7 @@
 		A1D92CB81AEBF206003E0B81 /* Server */ = {
 			isa = PBXGroup;
 			children = (
+				A192C7BC1AFE12C100713D53 /* Models */,
 				A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */,
 				A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */,
 				A1D92CB91AEBF22F003E0B81 /* FRLogServer.h */,
@@ -313,6 +331,8 @@
 				A1D92CB61AEBF1E2003E0B81 /* FRTextColor.m in Sources */,
 				A1D92C891AEBE61F003E0B81 /* MainViewController.m in Sources */,
 				A1D92C861AEBE61F003E0B81 /* main.m in Sources */,
+				A192C7C21AFE12F900713D53 /* FRLogServerDataURL.m in Sources */,
+				A192C7BF1AFE12E600713D53 /* FRLogServerDataDefault.m in Sources */,
 				A1D92CB71AEBF1E2003E0B81 /* FRTextView.m in Sources */,
 				A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */,
 				A1D92C841AEBE61F003E0B81 /* AppDelegate.m in Sources */,

@@ -15,6 +15,11 @@ typedef NS_ENUM(NSUInteger, FRLogServerState) {
     FRLogServerStateClosed
 };
 
+typedef NS_ENUM(NSUInteger, FRLogServerData) {
+    FRLSDURL = 1,
+    FRLSDDefault = 2
+};
+
 @protocol FRLogServerDelegate;
 
 @interface FRLogServer : NSObject <GCDAsyncUdpSocketDelegate> {
@@ -37,5 +42,6 @@ typedef NS_ENUM(NSUInteger, FRLogServerState) {
 @protocol FRLogServerDelegate
 
 - (void)onServer:(FRLogServer *)server withStatus:(FRLogServerState)state withError:(NSError *)error;
+- (void)onServer:(FRLogServer *)server readData:(id)datatype;
 
 @end

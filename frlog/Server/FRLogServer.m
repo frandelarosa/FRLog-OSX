@@ -8,6 +8,9 @@
 
 #import "FRLogServer.h"
 
+// Models
+#import "FRLogServerDataDefault.h"
+
 @implementation FRLogServer
 
 - (instancetype)initWithDelegate:(id)vcdelegate OnPort:(NSInteger)port {
@@ -50,6 +53,7 @@
     
 }
 
+
 #pragma mark -
 #pragma mark Reading
 #pragma mark -
@@ -57,13 +61,22 @@
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
     
     // Decode data
-    NSString *msg = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSError* error;
+    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
-    if (msg){
-        NSLog(@"==== MSG RCVD ====\n%@", msg);
-    }else{
-        NSLog(@"==== MSG ERROR ====\nError converting received data into UTF-8 String");
+    // Type
+    if (json != nil && ![json isEqualTo:[NSNull null]]){
+        
+        // Types
+        NSArray *jsonArr = [NSArray arrayWithObject:json];
+        NSArray *arrData = [FRLogServerDataDefault arrayOfModelsFromDictionaries:jsonArr];
+        
+        FRLogServerDataDefault *objdata = (FRLogServerDataDefault *)arrData.firstObject;
+        
+        NSLog(@"data: %@", objdata);
+        
     }
+    
     
 }
 
