@@ -104,19 +104,22 @@
 
 - (void)addText:(NSString *)text withHexColor:(NSString *)hex_color {
     
+    /*
     dispatch_async(dispatch_get_main_queue(), ^{
         NSAttributedString *textToAdd = [FRTextColor applyHexColor:hex_color toText:text];
         [self.console addAttributedTextToConsole:textToAdd];
     });
+     */
     
 }
 
 - (void)addText:(NSAttributedString *)text {
     
+    /*
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.console addAttributedTextToConsole:text];
     });
-    
+    */
     
 }
 
