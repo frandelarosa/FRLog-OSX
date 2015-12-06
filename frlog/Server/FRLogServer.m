@@ -72,10 +72,7 @@
         NSArray *arrData = [FRLogServerDataDefault arrayOfModelsFromDictionaries:jsonArr];
         
         FRLogServerDataDefault *objdata = (FRLogServerDataDefault *)arrData.firstObject;
-        
-        if ([objdata.obj_type integerValue] == FRLSDDefault){
-            [self.delegate onServer:self readData:objdata];
-        }
+        [self.delegate onServer:self readData:objdata];
         
     }
     

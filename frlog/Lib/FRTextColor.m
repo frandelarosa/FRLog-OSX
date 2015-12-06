@@ -29,7 +29,14 @@
 
 + (NSAttributedString *)applyHexColor:(NSString *)color toText:(NSString *)text {
     
-    // Convert string color to NSColor
+    NSColor *result = [FRTextColor getColorByHexColor:color withAlpha:1];
+    
+    return [self applyColor:result toText:text];
+    
+}
+
++ (NSColor *)getColorByHexColor:(NSString *)color withAlpha:(CGFloat)alpha {
+    
     NSColor *result = nil;
     unsigned colorCode = 0;
     unsigned char redByte, greenByte, blueByte;
@@ -49,9 +56,9 @@
               colorWithCalibratedRed:(CGFloat)redByte / 0xff
               green:(CGFloat)greenByte / 0xff
               blue:(CGFloat)blueByte / 0xff
-              alpha:1.0];
+              alpha:alpha];
     
-    return [self applyColor:result toText:text];
+    return result;
     
 }
 

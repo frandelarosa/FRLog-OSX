@@ -22,4 +22,9 @@
 */
 + (NSAttributedString *)applyHexColor:(NSString *)color toText:(NSString *)text;
 
+/**
+ Get NSColor from HEX string.
+*/
++ (NSColor *)getColorByHexColor:(NSString *)color withAlpha:(CGFloat)alpha;
+
 @end

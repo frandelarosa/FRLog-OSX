@@ -7,18 +7,18 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "FRTextView.h"
 
 // Lib
 #import "FRLogServer.h"
 
-@interface MainViewController : NSViewController <FRLogServerDelegate> {
+@interface MainViewController : NSViewController <FRLogServerDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     
     FRLogServer *server;
+    NSMutableArray *dataSource;
     
 }
 
-@property (unsafe_unretained) IBOutlet FRTextView *console;
+@property (weak) IBOutlet NSTableView *tableView;
 
 @end
 
