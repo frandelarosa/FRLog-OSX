@@ -7,8 +7,8 @@
 //
 
 #define CLASSNAME @"[classname not defined]"
-#define LINE @"NLN"
-#define CONTENT @"Content not defined"
+#define LINE      @"NLN"
+#define CONTENT   @"Content not defined"
 
 #import "FRObjectParser.h"
 

@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 Fran de la Rosa. All rights reserved.
 //
 
+#define FRLOG_OBJ_ID        @"frlog_id"
 #define FRLOG_OBJ_TYPE      @"frlog_type"
 #define FRLOG_OBJ_CLASSLINE @"frlog_classline"
 #define FRLOG_OBJ_OUTPUT    @"frlog_output"
@@ -24,6 +25,7 @@
 
 // Models
 #import "FRLogServerDataDefault.h"
+#import "FRLogServerDataURL.h"
 
 @implementation MainViewController
 
@@ -75,12 +77,12 @@
 - (void)onServer:(FRLogServer *)server withStatus:(FRLogServerState)state withError:(NSError *)error {
     
     if (state == FRLogServerStateRunning){
-        
-        [self addText:@"=== SERVER RUNNING ON PORT 1283 ===" withHexColor:@"FFFFFF"];
+
+        NSLog(@"=== SERVER RUNNING ON PORT 1283 ===");
         
     }else if (state == FRLogServerStateStopped){
         
-        [self addText:@"=== ERROR STARTING SERVER ===" withHexColor:@"EC1A1A"];
+        NSLog(@"=== ERROR STARTING SERVER ===");
         
     }
     
@@ -88,28 +90,44 @@
 
 - (void)onServer:(FRLogServer *)server readData:(id)datatype {
     
+    /*
     if ([datatype isKindOfClass:[FRLogServerDataDefault class]]){
         
         [self parseDefaultData:datatype];
         
-    }else{
+    }else if ([datatype isKindOfClass:[FRLogServerDataURL class]]){
         
-        [self addText:@"Data type not supported" withHexColor:@"c81a1a"];
+        [self parseDefaultData:<#(FRLogServerDataDefault *)#>]
+        
+    }else {
+        
+        NSLog(@"=== ERROR === Data type not supported");
+        
     }
+     */
+    
+    [dataSource addObject:datatype];
+    
+    [self.tableView reloadData];
+    
+    if ([dataSource count] > 0)
+        [self.tableView scrollRowToVisible:[dataSource count] - 1];
     
     
 }
 
-
+/*
 #pragma mark -
 #pragma mark Parse Objects
 #pragma mark -
 
 - (void)parseDefaultData:(FRLogServerDataDefault *)data {
     
+    NSLog(@"DATA TO PARSE TYPE: %@", data.obj_type);
+    
     NSString *dataParsed = [FRObjectParser parseDefaultData:data];
     
-    /*
+ 
     
     switch([data.obj_type integerValue]){
             
@@ -123,42 +141,14 @@
             [self addText:dataParsed withHexColor:COLOR_DEFAULT];
             break;
     }
-     */
+ 
     
     [dataSource addObject:data];
-    [self.tableView reloadData];
+   
     
 
 }
-
-
-#pragma mark -
-#pragma mark Text
-#pragma mark -
-
-- (void)addText:(NSString *)text withHexColor:(NSString *)hex_color {
-    
-    /*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSAttributedString *textToAdd = [FRTextColor applyHexColor:hex_color toText:text];
-        //[self.console addAttributedTextToConsole:textToAdd];
-        NSLog(@"OUTPUT: %@", textToAdd);
-    });
-     */
-    
-}
-
-- (void)addText:(NSAttributedString *)text {
-    
-    /*
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSLog(@"OUTPUT: %@", text);
-        //[self.console addAttributedTextToConsole:text];
-    });
-    */
-    
-}
-
+*/
 
 #pragma mark -
 #pragma mark TableView
@@ -178,21 +168,12 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
-    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
-
-    // Data
-    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
-        
-        return [self setColumnType:logObj.obj_type];
-        
-    }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
-        
-        return [NSString stringWithFormat:@"%@:%@", logObj.obj_classname, logObj.obj_line];
-        
+    id logObject = [dataSource objectAtIndex:row];
+    
+    if ([logObject isKindOfClass:[FRLogServerDataDefault class]]){
+        return [self drawDefaultObject:logObject inColumn:tableColumn row:row];
     }else {
-        
-        return logObj.obj_content;
-        
+        return [self drawURLObject:logObject inColumn:tableColumn row:row];
     }
     
 }
@@ -201,7 +182,7 @@
     
     NSTextFieldCell *cell = [tableColumn dataCell];
     
-    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
+    id logObj = [dataSource objectAtIndex:row];
     
     /******************
      Background Color
@@ -220,37 +201,47 @@
      Text Color
     *******************/
     
-    switch([logObj.obj_type integerValue]){
-        case 2: // Info
-            [cell setTextColor:[FRTextColor getColorByHexColor:@"3b8b3e" withAlpha:1]];
-            break;
+    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
+        
+        [cell setTextColor:[NSColor blackColor]];
+        
+    }else {
+        
+        switch([[logObj valueForKey:@"obj_type"] integerValue]){
+                
+            case FRLSDDefault:
+                [cell setTextColor:[FRTextColor getColorByHexColor:@"3b8b3e" withAlpha:1]];
+                break;
+                
+            case FRLSDURL:
+                [cell setTextColor:[FRTextColor getColorByHexColor:@"f99a1d" withAlpha:1]];
+                break;
+        }
+        
     }
     
     return cell;
     
 }
 
+
 #pragma mark -
 #pragma mark Column Behaviour
 #pragma mark -
 
-- (NSString *)setColumnType:(NSString *)obj_type {
+- (NSString *)setColumnType:(FRLogServerData)obj_type {
     
     NSString *columnName;
     
-    switch ([obj_type integerValue]) {
+    switch (obj_type) {
             
         default:
-        case 1: // URL
-            columnName = FRLOG_OBJ_TYPEURL;
-            break;
-            
-        case 2: // Info
+        case 1: // Info
             columnName = FRLOG_OBJ_TYPEINFO;
             break;
             
-        case 3: // Error
-            columnName = FRLOG_OBJ_TYPERROR;
+        case 2: // Info
+            columnName = FRLOG_OBJ_TYPEURL;
             break;
             
     }
@@ -259,6 +250,66 @@
     
 }
 
+
+#pragma mark -
+#pragma mark Draw
+#pragma mark -
+
+- (id)drawDefaultObject:(id)object inColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    
+    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
+    
+    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
+        
+        // ID
+        return [NSString stringWithFormat:@"%li", row+1];
+        
+    }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
+        
+        // Type
+        return [self setColumnType:FRLSDDefault];
+        
+    }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
+        
+        // Class name and line
+        return [NSString stringWithFormat:@"%@:%@", logObj.obj_classname, logObj.obj_line];
+        
+    }else {
+        
+        // Content
+        return logObj.obj_content;
+        
+    }
+    
+}
+
+- (id)drawURLObject:(id)object inColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+    
+    FRLogServerDataURL *logObj = (FRLogServerDataURL *)[dataSource objectAtIndex:row];
+    
+    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
+        
+        // ID
+        return [NSString stringWithFormat:@"%li", row+1];
+        
+    } else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
+        
+        // Type
+        return [self setColumnType:FRLSDURL];
+        
+    }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
+        
+        // Class name and line
+        return [NSString stringWithFormat:@"-"];
+        
+    }else {
+        
+        // Content
+        return [NSString stringWithFormat:@"REQUEST: %@\nURL: %@", logObj.obj_requestname, logObj.obj_url];
+        
+    }
+    
+}
 
 
 @end

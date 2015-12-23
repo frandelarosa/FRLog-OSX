@@ -10,6 +10,7 @@
 
 // Models
 #import "FRLogServerDataDefault.h"
+#import "FRLogServerDataURL.h"
 
 @implementation FRLogServer
 
@@ -67,15 +68,52 @@
     // Type
     if (json != nil && ![json isEqualTo:[NSNull null]]){
         
-        // Types
-        NSArray *jsonArr = [NSArray arrayWithObject:json];
-        NSArray *arrData = [FRLogServerDataDefault arrayOfModelsFromDictionaries:jsonArr];
+        //NSLog(@"JSON: %@", json);
         
-        FRLogServerDataDefault *objdata = (FRLogServerDataDefault *)arrData.firstObject;
-        [self.delegate onServer:self readData:objdata];
+        // Get object type
+        NSInteger objectType = [json[@"type"] integerValue];
+        NSArray *jsonArr     = [NSArray arrayWithObject:json[@"log"]];
         
+        switch(objectType){
+                
+            // Default Object
+            case FRLSDDefault:
+                [self parseDefaultObject:jsonArr];
+                break;
+                
+            // URL Object
+            case FRLSDURL:
+                [self parseURLObject:jsonArr];
+                break;
+        }
+        
+
     }
     
+}
+
+
+#pragma mark -
+#pragma mark Parsing
+#pragma mark -
+
+- (void)parseDefaultObject:(NSArray *)jsonArr {
+    
+    NSArray *arrData = [FRLogServerDataDefault arrayOfModelsFromDictionaries:jsonArr];
+    
+    FRLogServerDataDefault *objdata = (FRLogServerDataDefault *)arrData.firstObject;
+    
+    [self.delegate onServer:self readData:objdata];
+    
+}
+
+- (void)parseURLObject:(NSArray *)jsonArr {
+    
+    NSArray *arrData = [FRLogServerDataURL arrayOfModelsFromDictionaries:jsonArr];
+    
+    FRLogServerDataURL *objdata = (FRLogServerDataURL *)arrData.firstObject;
+    
+    [self.delegate onServer:self readData:objdata];
     
 }
 
