@@ -14,11 +14,13 @@
 @interface MainViewController : NSViewController <FRLogServerDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     
     FRLogServer *server;
-    NSMutableArray *dataSource;
+    NSPredicate *filterPredicate;
+    
     
 }
 
 @property (weak) IBOutlet NSTableView *tableView;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 
 @end
 

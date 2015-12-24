@@ -11,6 +11,7 @@
 
 @interface FRLogServerObject : JSONModel
 
+@property (nonatomic, strong) NSString<Optional> *obj_date;
 @property (nonatomic, strong) NSString<Optional> *obj_line;
 @property (nonatomic, strong) NSString<Optional> *obj_type;
 @property (nonatomic, strong) NSString<Optional> *obj_classname;

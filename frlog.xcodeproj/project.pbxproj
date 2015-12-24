@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B53055ED1BD0435EA2FB1EE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5ECCF1AB70FF90148D55F24 /* libPods.a */; };
 		A11DEDD81AFF56EC00C4261C /* FRObjectParser.m in Sources */ = {isa = PBXBuildFile; fileRef = A11DEDD71AFF56EC00C4261C /* FRObjectParser.m */; };
+		A121E0C71C2C026600C6C937 /* FRLogTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A121E0C61C2C026600C6C937 /* FRLogTextFieldCell.m */; };
 		A13E9D591AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */; };
 		A13F9DE21C2B08EC003D5F13 /* FRLogServerObject.m in Sources */ = {isa = PBXBuildFile; fileRef = A13F9DE11C2B08EC003D5F13 /* FRLogServerObject.m */; };
 		A192C7BF1AFE12E600713D53 /* FRLogServerDataDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = A192C7BE1AFE12E600713D53 /* FRLogServerDataDefault.m */; };
@@ -38,6 +39,8 @@
 		A11DEDD61AFF56EC00C4261C /* FRObjectParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRObjectParser.h; sourceTree = "<group>"; };
 		A11DEDD71AFF56EC00C4261C /* FRObjectParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRObjectParser.m; sourceTree = "<group>"; };
 		A11DEDDA1AFF5CED00C4261C /* FRLogSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogSettings.h; sourceTree = "<group>"; };
+		A121E0C51C2C026600C6C937 /* FRLogTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogTextFieldCell.h; sourceTree = "<group>"; };
+		A121E0C61C2C026600C6C937 /* FRLogTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FRLogTextFieldCell.m; sourceTree = "<group>"; };
 		A13E9D571AF37BCE00A01CF4 /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		A13E9D581AF37BCE00A01CF4 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
 		A13F9DE01C2B08EC003D5F13 /* FRLogServerObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FRLogServerObject.h; sourceTree = "<group>"; };
@@ -104,6 +107,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		A121E0C41C2C025700C6C937 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A121E0C51C2C026600C6C937 /* FRLogTextFieldCell.h */,
+				A121E0C61C2C026600C6C937 /* FRLogTextFieldCell.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		A192C7BC1AFE12C100713D53 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +152,7 @@
 		A1D92C7F1AEBE61F003E0B81 /* frlog */ = {
 			isa = PBXGroup;
 			children = (
+				A121E0C41C2C025700C6C937 /* UI */,
 				A11DEDD91AFF5CD700C4261C /* Settings */,
 				A1D92CB81AEBF206003E0B81 /* Server */,
 				A1D92CB11AEBF1E2003E0B81 /* Lib */,
@@ -366,6 +379,7 @@
 			files = (
 				A1D92CB61AEBF1E2003E0B81 /* FRTextColor.m in Sources */,
 				A1D92C891AEBE61F003E0B81 /* MainViewController.m in Sources */,
+				A121E0C71C2C026600C6C937 /* FRLogTextFieldCell.m in Sources */,
 				A1D92C861AEBE61F003E0B81 /* main.m in Sources */,
 				A192C7C21AFE12F900713D53 /* FRLogServerDataURL.m in Sources */,
 				A13F9DE21C2B08EC003D5F13 /* FRLogServerObject.m in Sources */,

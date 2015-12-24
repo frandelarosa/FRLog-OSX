@@ -58,7 +58,7 @@
 
 - (void)initVars {
     
-    dataSource = [NSMutableArray new];
+    self.dataSource = [NSMutableArray new];
     
 }
 
@@ -90,65 +90,17 @@
 
 - (void)onServer:(FRLogServer *)server readData:(id)datatype {
     
-    /*
-    if ([datatype isKindOfClass:[FRLogServerDataDefault class]]){
-        
-        [self parseDefaultData:datatype];
-        
-    }else if ([datatype isKindOfClass:[FRLogServerDataURL class]]){
-        
-        [self parseDefaultData:<#(FRLogServerDataDefault *)#>]
-        
-    }else {
-        
-        NSLog(@"=== ERROR === Data type not supported");
-        
-    }
-     */
-    
-    [dataSource addObject:datatype];
+    [self.dataSource addObject:datatype];
     
     [self.tableView reloadData];
+    [self.tableView sizeLastColumnToFit];
     
-    if ([dataSource count] > 0)
-        [self.tableView scrollRowToVisible:[dataSource count] - 1];
+    if ([self.dataSource count] > 0)
+        [self.tableView scrollRowToVisible:[self.dataSource count] - 1];
     
     
 }
 
-/*
-#pragma mark -
-#pragma mark Parse Objects
-#pragma mark -
-
-- (void)parseDefaultData:(FRLogServerDataDefault *)data {
-    
-    NSLog(@"DATA TO PARSE TYPE: %@", data.obj_type);
-    
-    NSString *dataParsed = [FRObjectParser parseDefaultData:data];
-    
- 
-    
-    switch([data.obj_type integerValue]){
-            
-        // INFO
-        case 2:
-            [self addText:dataParsed withHexColor:COLOR_INFO];
-            break;
-            
-        // DEFAULT
-        default:
-            [self addText:dataParsed withHexColor:COLOR_DEFAULT];
-            break;
-    }
- 
-    
-    [dataSource addObject:data];
-   
-    
-
-}
-*/
 
 #pragma mark -
 #pragma mark TableView
@@ -158,8 +110,8 @@
     
     NSInteger numRows = 0;
     
-    if (dataSource && [dataSource count] > 0){
-        numRows = [dataSource count];
+    if (self.dataSource && [self.dataSource count] > 0){
+        numRows = [self.dataSource count];
     }
     
     return numRows;
@@ -168,7 +120,7 @@
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
-    id logObject = [dataSource objectAtIndex:row];
+    id logObject = [self.dataSource objectAtIndex:row];
     
     if ([logObject isKindOfClass:[FRLogServerDataDefault class]]){
         return [self drawDefaultObject:logObject inColumn:tableColumn row:row];
@@ -182,7 +134,7 @@
     
     NSTextFieldCell *cell = [tableColumn dataCell];
     
-    id logObj = [dataSource objectAtIndex:row];
+    id logObj = [self.dataSource objectAtIndex:row];
     
     /******************
      Background Color
@@ -190,40 +142,86 @@
     
     [cell setDrawsBackground:YES];
     
-    if (row % 2){
-        [cell setBackgroundColor:[FRTextColor getColorByHexColor:@"e0e0e0" withAlpha:1]];
-    }else {
-        [cell setBackgroundColor:[NSColor whiteColor]];
+    switch([[logObj valueForKey:@"obj_type"] integerValue]){
+            
+        case FRLSDDefault:
+            [cell setBackgroundColor:[FRTextColor getColorByHexColor:@"0bd177" withAlpha:0.4]];
+            break;
+            
+        case FRLSDURL:
+            [cell setBackgroundColor:[FRTextColor getColorByHexColor:@"f99a1d" withAlpha:0.4]];
+            break;
     }
-    
     
     /******************
      Text Color
     *******************/
     
-    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
+    [cell setTextColor:[NSColor blackColor]];
         
-        [cell setTextColor:[NSColor blackColor]];
-        
-    }else {
-        
-        switch([[logObj valueForKey:@"obj_type"] integerValue]){
-                
-            case FRLSDDefault:
-                [cell setTextColor:[FRTextColor getColorByHexColor:@"3b8b3e" withAlpha:1]];
-                break;
-                
-            case FRLSDURL:
-                [cell setTextColor:[FRTextColor getColorByHexColor:@"f99a1d" withAlpha:1]];
-                break;
-        }
-        
-    }
+
     
     return cell;
     
 }
 
+/*
+- (CGFloat)tableView:(NSTableView *)tableView heightOfRow:(NSInteger)row {
+    
+    id logObject = [dataSource objectAtIndex:row];
+    
+    NSString *content = nil;
+    
+    if ([logObject isKindOfClass:[FRLogServerDataDefault class]]){
+        content = [FRObjectParser parseDefaultData:(FRLogServerDataDefault *)logObject];
+    }else {
+        content = [FRObjectParser parseURLData:(FRLogServerDataURL *)logObject];
+    }
+    
+    NSTableColumn *tableColoumn = [tableView tableColumnWithIdentifier:FRLOG_OBJ_OUTPUT];
+    
+    CGFloat height = 0;
+    
+    if (tableColoumn){
+        
+        NSCell *dataCell = [tableColoumn dataCell];
+        
+        [dataCell setWraps:YES];
+        [dataCell setStringValue:content];
+        
+        height = [self calculateIdealHeightForSize:[dataCell cellSize] content:content];
+
+        return height;
+        
+    }
+    
+    return 30;
+ 
+ https://www.youtube.com/watch?v=Zdw-rRFmi9c
+    
+}
+ */
+
+- (CGFloat)calculateIdealHeightForSize:(NSSize)size content:(NSString *)content {
+    
+    NSTextStorage * storage =
+    [[NSTextStorage alloc] initWithAttributedString:[[NSAttributedString alloc] initWithString: content ]];
+    
+    NSTextContainer * container =
+    [[NSTextContainer alloc] initWithContainerSize: size];
+    NSLayoutManager * manager = [[NSLayoutManager alloc] init];
+    
+    [manager addTextContainer: container];
+    [storage addLayoutManager: manager];
+    
+    [manager glyphRangeForTextContainer: container];
+    
+    NSRect idealRect = [manager usedRectForTextContainer: container];
+    
+    // Include a fudge factor.
+    return idealRect.size.height + 25;
+    
+}
 
 #pragma mark -
 #pragma mark Column Behaviour
@@ -257,17 +255,17 @@
 
 - (id)drawDefaultObject:(id)object inColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
-    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
+    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[self.dataSource objectAtIndex:row];
     
     if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
         
-        // ID
-        return [NSString stringWithFormat:@"%li", row+1];
+        // Time
+        return logObj.obj_date;
         
     }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
         
         // Type
-        return [self setColumnType:FRLSDDefault];
+        return [[self setColumnType:FRLSDDefault] uppercaseString];
         
     }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
         
@@ -277,7 +275,7 @@
     }else {
         
         // Content
-        return logObj.obj_content;
+        return [FRObjectParser parseDefaultData:logObj];
         
     }
     
@@ -285,17 +283,17 @@
 
 - (id)drawURLObject:(id)object inColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
-    FRLogServerDataURL *logObj = (FRLogServerDataURL *)[dataSource objectAtIndex:row];
+    FRLogServerDataURL *logObj = (FRLogServerDataURL *)[self.dataSource objectAtIndex:row];
     
     if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_ID]){
         
-        // ID
-        return [NSString stringWithFormat:@"%li", row+1];
+        // Time
+        return logObj.obj_date;
         
     } else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
         
         // Type
-        return [self setColumnType:FRLSDURL];
+        return [[self setColumnType:FRLSDURL] uppercaseString];
         
     }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
         
@@ -305,7 +303,7 @@
     }else {
         
         // Content
-        return [NSString stringWithFormat:@"REQUEST: %@\nURL: %@", logObj.obj_requestname, logObj.obj_url];
+        return [FRObjectParser parseURLData:logObj];
         
     }
     
