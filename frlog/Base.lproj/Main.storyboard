@@ -673,13 +673,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-oZ-o2Z">
-                                <rect key="frame" x="0.0" y="0.0" width="896" height="438"/>
+                                <rect key="frame" x="0.0" y="40" width="896" height="398"/>
                                 <clipView key="contentView" id="X88-6X-POb">
-                                    <rect key="frame" x="1" y="0.0" width="894" height="437"/>
+                                    <rect key="frame" x="1" y="0.0" width="894" height="397"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" emptySelection="NO" autosaveColumns="NO" rowHeight="24" headerView="CIN-dA-SLd" id="dwG-CW-UEs">
-                                            <rect key="frame" x="0.0" y="0.0" width="894" height="414"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="894" height="374"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="0.0" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -724,7 +724,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                 </tableColumn>
-                                                <tableColumn identifier="frlog_output" width="45" minWidth="10" maxWidth="3.4028234663852886e+38" id="AHn-5H-z6F">
+                                                <tableColumn identifier="frlog_output" width="364" minWidth="10" maxWidth="3.4028234663852886e+38" id="AHn-5H-z6F">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Output">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -755,12 +755,40 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="igx-PM-ZlZ">
+                                <rect key="frame" x="8" y="10" width="880" height="22"/>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="vUa-9Y-Hy0">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <connections>
+                                        <binding destination="oOB-eU-unJ" name="predicate" keyPath="filterPredicate" id="mDN-bS-SCv">
+                                            <dictionary key="options">
+                                                <string key="NSDisplayName">predicate</string>
+                                                <string key="NSPredicateFormat">obj_type contains $value</string>
+                                            </dictionary>
+                                        </binding>
+                                    </connections>
+                                </searchFieldCell>
+                                <connections>
+                                    <binding destination="oOB-eU-unJ" name="predicate" keyPath="filterPredicate" id="MaP-wL-xfy">
+                                        <dictionary key="options">
+                                            <string key="NSDisplayName">predicate</string>
+                                            <string key="NSPredicateFormat">obj_type contains $value</string>
+                                        </dictionary>
+                                    </binding>
+                                </connections>
+                            </searchField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iyL-oZ-o2Z" secondAttribute="bottom" id="IcP-9M-fKh"/>
+                            <constraint firstItem="igx-PM-ZlZ" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="8" id="DOx-yH-MLa"/>
+                            <constraint firstAttribute="trailing" secondItem="igx-PM-ZlZ" secondAttribute="trailing" constant="8" id="Dl9-ne-ybW"/>
+                            <constraint firstAttribute="bottom" secondItem="iyL-oZ-o2Z" secondAttribute="bottom" constant="40" id="IcP-9M-fKh"/>
                             <constraint firstAttribute="trailing" secondItem="iyL-oZ-o2Z" secondAttribute="trailing" id="OzC-3q-2PF"/>
+                            <constraint firstAttribute="bottom" secondItem="igx-PM-ZlZ" secondAttribute="bottom" constant="10" id="XIh-EP-GdY"/>
                             <constraint firstItem="iyL-oZ-o2Z" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="YEz-8L-1BL"/>
                             <constraint firstItem="iyL-oZ-o2Z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="eyn-zh-Hgv"/>
+                            <constraint firstItem="igx-PM-ZlZ" firstAttribute="top" secondItem="iyL-oZ-o2Z" secondAttribute="bottom" constant="8" id="fF5-ZA-QyC"/>
                         </constraints>
                     </view>
                     <connections>
@@ -768,6 +796,11 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="FRLogServerDataDefault" id="oOB-eU-unJ">
+                    <declaredKeys>
+                        <string>obj_type</string>
+                    </declaredKeys>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="283" y="739"/>
         </scene>
