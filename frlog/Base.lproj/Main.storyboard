@@ -796,7 +796,7 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="FRLogServerDataDefault" id="oOB-eU-unJ">
+                <arrayController objectClassName="FRLogServerDataURL" id="oOB-eU-unJ">
                     <declaredKeys>
                         <string>obj_type</string>
                     </declaredKeys>
