@@ -36,7 +36,6 @@
     [super viewDidLoad];
     
     [self initVars];
-    [self initTable];
     
     server = [[FRLogServer alloc] initWithDelegate:self OnPort:1283];
     
@@ -57,13 +56,6 @@
 - (void)initVars {
     
     dataSource = [NSMutableArray new];
-    
-}
-
-- (void)initTable {
-    
-    self.tableView.delegate   = self;
-    self.tableView.dataSource = self;
     
 }
 
@@ -109,6 +101,8 @@
     
     NSString *dataParsed = [FRObjectParser parseDefaultData:data];
     
+    [self addText:dataParsed withHexColor:COLOR_INFO];
+    
     /*
     
     switch([data.obj_type integerValue]){
@@ -126,7 +120,6 @@
      */
     
     [dataSource addObject:data];
-    [self.tableView reloadData];
     
 
 }
@@ -138,13 +131,13 @@
 
 - (void)addText:(NSString *)text withHexColor:(NSString *)hex_color {
     
-    /*
+ 
     dispatch_async(dispatch_get_main_queue(), ^{
         NSAttributedString *textToAdd = [FRTextColor applyHexColor:hex_color toText:text];
-        //[self.console addAttributedTextToConsole:textToAdd];
+        [self.console addAttributedTextToConsole:textToAdd];
         NSLog(@"OUTPUT: %@", textToAdd);
     });
-     */
+   
     
 }
 
@@ -159,6 +152,7 @@
     
 }
 
+/*
 
 #pragma mark -
 #pragma mark TableView
@@ -196,16 +190,15 @@
     }
     
 }
+ */
+
+/*
 
 - (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
     
     NSTextFieldCell *cell = [tableColumn dataCell];
     
     FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
-    
-    /******************
-     Background Color
-    *******************/
     
     [cell setDrawsBackground:YES];
     
@@ -215,11 +208,12 @@
         [cell setBackgroundColor:[NSColor whiteColor]];
     }
     
-    
+*/
     /******************
      Text Color
     *******************/
-    
+
+/*
     switch([logObj.obj_type integerValue]){
         case 2: // Info
             [cell setTextColor:[FRTextColor getColorByHexColor:@"3b8b3e" withAlpha:1]];
@@ -259,6 +253,6 @@
     
 }
 
-
+*/
 
 @end

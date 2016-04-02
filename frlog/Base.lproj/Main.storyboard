@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="10116"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -672,98 +672,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="896" height="438"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyL-oZ-o2Z">
-                                <rect key="frame" x="0.0" y="0.0" width="896" height="438"/>
-                                <clipView key="contentView" id="X88-6X-POb">
-                                    <rect key="frame" x="1" y="0.0" width="894" height="437"/>
+                            <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-Mj-KvA">
+                                <rect key="frame" x="0.0" y="42" width="896" height="396"/>
+                                <clipView key="contentView" id="CCf-4S-yXm">
+                                    <rect key="frame" x="1" y="1" width="879" height="394"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" headerView="CIN-dA-SLd" id="dwG-CW-UEs">
-                                            <rect key="frame" x="0.0" y="0.0" width="894" height="414"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <animations/>
-                                            <size key="intercellSpacing" width="3" height="2"/>
-                                            <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
-                                            <tableColumns>
-                                                <tableColumn identifier="frlog_type" width="116" minWidth="40" maxWidth="1000" id="IAf-Ex-uYv">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Type">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" id="TIf-Qf-BGO">
-                                                        <font key="font" metaFont="system" size="14"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="frlog_classline" width="150" minWidth="100" maxWidth="500" id="Rh4-55-YZ7">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Class / Line">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" id="7xP-lH-5IN">
-                                                        <font key="font" metaFont="system" size="14"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                                <tableColumn identifier="frlog_output" width="569" minWidth="10" maxWidth="3.4028234663852886e+38" id="AHn-5H-z6F">
-                                                    <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Output">
-                                                        <font key="font" metaFont="smallSystem"/>
-                                                        <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                    </tableHeaderCell>
-                                                    <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" alignment="left" id="4KB-tV-8Q9">
-                                                        <font key="font" metaFont="system" size="14"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                    <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
-                                                </tableColumn>
-                                            </tableColumns>
-                                        </tableView>
+                                        <textView importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="hKR-Dl-tLF" customClass="FRTextView">
+                                            <rect key="frame" x="0.0" y="0.0" width="879" height="394"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="backgroundColor" red="0.062105442910000003" green="0.083491311380000002" blue="0.1129064078" alpha="1" colorSpace="calibratedRGB"/>
+                                            <size key="minSize" width="879" height="394"/>
+                                            <size key="maxSize" width="879" height="10000000"/>
+                                            <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="879" height="394"/>
+                                            <size key="maxSize" width="879" height="10000000"/>
+                                        </textView>
                                     </subviews>
-                                    <animations/>
-                                    <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </clipView>
-                                <animations/>
-                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="2UR-Ui-cle">
-                                    <rect key="frame" x="1" y="422" width="894" height="15"/>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="MhK-eT-QGr">
+                                    <rect key="frame" x="-100" y="-100" width="87" height="18"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </scroller>
-                                <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="pc7-tb-TzQ">
-                                    <rect key="frame" x="224" y="17" width="15" height="102"/>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="cKC-JO-ado">
+                                    <rect key="frame" x="880" y="1" width="15" height="394"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
                                 </scroller>
-                                <tableHeaderView key="headerView" id="CIN-dA-SLd">
-                                    <rect key="frame" x="0.0" y="0.0" width="894" height="23"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <animations/>
-                                </tableHeaderView>
                             </scrollView>
+                            <searchField wantsLayer="YES" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cvF-OJ-C3d">
+                                <rect key="frame" x="7" y="10" width="882" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="EDX-BI-hs0"/>
+                                </constraints>
+                                <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="Xh9-UO-Y1v">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </searchFieldCell>
+                            </searchField>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="iyL-oZ-o2Z" secondAttribute="bottom" id="IcP-9M-fKh"/>
-                            <constraint firstAttribute="trailing" secondItem="iyL-oZ-o2Z" secondAttribute="trailing" id="OzC-3q-2PF"/>
-                            <constraint firstItem="iyL-oZ-o2Z" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="YEz-8L-1BL"/>
-                            <constraint firstItem="iyL-oZ-o2Z" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="eyn-zh-Hgv"/>
+                            <constraint firstAttribute="bottom" secondItem="cvF-OJ-C3d" secondAttribute="bottom" constant="10" id="76G-O0-6zt"/>
+                            <constraint firstItem="gWP-Mj-KvA" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="AJj-xn-Ov1"/>
+                            <constraint firstItem="cvF-OJ-C3d" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="7" id="BRZ-mF-qj7"/>
+                            <constraint firstItem="cvF-OJ-C3d" firstAttribute="top" secondItem="gWP-Mj-KvA" secondAttribute="bottom" constant="10" id="NfM-4G-FbK"/>
+                            <constraint firstAttribute="trailing" secondItem="cvF-OJ-C3d" secondAttribute="trailing" constant="7" id="Nzq-V2-XFK"/>
+                            <constraint firstAttribute="trailing" secondItem="gWP-Mj-KvA" secondAttribute="trailing" id="Q0T-SA-sir"/>
+                            <constraint firstItem="gWP-Mj-KvA" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="aNG-Yh-c7S"/>
                         </constraints>
-                        <animations/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="dwG-CW-UEs" id="2Cq-Rh-DjN"/>
+                        <outlet property="console" destination="hKR-Dl-tLF" id="DxJ-Qz-p81"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="283" y="739"/>
+            <point key="canvasLocation" x="75" y="828"/>
         </scene>
     </scenes>
 </document>

@@ -10,6 +10,7 @@
 
 // Lib
 #import "FRLogServer.h"
+#import "FRTextView.h"
 
 @interface MainViewController : NSViewController <FRLogServerDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     
@@ -17,8 +18,7 @@
     NSMutableArray *dataSource;
     
 }
-
-@property (weak) IBOutlet NSTableView *tableView;
+@property (unsafe_unretained) IBOutlet FRTextView *console;
 
 @end
 
