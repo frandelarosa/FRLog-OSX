@@ -15,7 +15,8 @@
 @interface MainViewController : NSViewController <FRLogServerDelegate, NSTableViewDataSource, NSTableViewDelegate> {
     
     FRLogServer *server;
-    NSMutableArray *dataSource;
+    NSPredicate *filterPredicate;
+    
     
 }
 @property (unsafe_unretained) IBOutlet FRTextView *console;

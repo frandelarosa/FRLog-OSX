@@ -728,6 +728,11 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController objectClassName="FRLogServerDataURL" id="oOB-eU-unJ">
+                    <declaredKeys>
+                        <string>obj_type</string>
+                    </declaredKeys>
+                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="828"/>
         </scene>

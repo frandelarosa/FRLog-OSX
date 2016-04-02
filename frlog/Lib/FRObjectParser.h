@@ -10,9 +10,26 @@
 
 // Objects
 #import "FRLogServerDataDefault.h"
+#import "FRLogServerDataURL.h"
 
 @interface FRObjectParser : NSObject
 
+/**
+ Get current date and time.
+*/
++ (NSString *)getCurrentTime;
+
+/**
+ Parse log content.
+ @param data Default data object.
+*/
+
 + (NSString *)parseDefaultData:(FRLogServerDataDefault *)data;
+
+/**
+ Parse log content.
+ @param data URL data object.
+ */
++ (NSString *)parseURLData:(FRLogServerDataURL *)data;
 
 @end

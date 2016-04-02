@@ -16,8 +16,8 @@ typedef NS_ENUM(NSUInteger, FRLogServerState) {
 };
 
 typedef NS_ENUM(NSUInteger, FRLogServerData) {
-    FRLSDURL = 1,
-    FRLSDDefault = 2
+    FRLSDDefault = 1,
+    FRLSDURL = 2
 };
 
 @protocol FRLogServerDelegate;

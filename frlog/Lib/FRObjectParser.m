@@ -7,8 +7,8 @@
 //
 
 #define CLASSNAME @"[classname not defined]"
-#define LINE @"NLN"
-#define CONTENT @"Content not defined"
+#define LINE      @"NLN"
+#define CONTENT   @"Content not defined"
 
 #import "FRObjectParser.h"
 
@@ -17,41 +17,28 @@
 
 @implementation FRObjectParser
 
+#pragma mark -
+#pragma mark INFO
+#pragma mark -
+
 + (NSString *)parseDefaultData:(FRLogServerDataDefault *)data {
     
-    NSString *str = nil;
+    return [NSString stringWithString:data.obj_content];
     
-    // Data to parse
-    NSString *obj_classname = nil;
-    NSString *obj_line      = nil;
-    NSString *obj_content   = nil;
+}
+
+
+#pragma mark -
+#pragma mark URL
+#pragma mark -
+
++ (NSString *)parseURLData:(FRLogServerDataURL *)data {
     
-    // Classname
-    if (data.obj_classname != nil && ![data.obj_classname isEqualTo:[NSNull null]] && data.obj_classname.length > 0){
-        obj_classname = [NSString stringWithFormat:@"%@", data.obj_classname];
-    }else{
-        obj_classname = [NSString stringWithFormat:@"%@", CLASSNAME];
-    }
+    NSMutableString *content = [NSMutableString new];
     
-    // Linenumber
-    if (data.obj_line != nil && ![data.obj_line isEqualTo:[NSNull null]] && data.obj_line.length > 0){
-        obj_line = [NSString stringWithFormat:@"%@", data.obj_line];
-    }else{
-        obj_line = [NSString stringWithFormat:@"%@", LINE];
-    }
+    [content appendString:[NSString stringWithFormat:@"%@", data.obj_url]];
     
-    // Content
-    if (data.obj_content != nil && ![data.obj_content isEqualTo:[NSNull null]] && data.obj_content.length > 0){
-        obj_content = [NSString stringWithFormat:@"%@", data.obj_content];
-    }else{
-        obj_content = [NSString stringWithFormat:@"%@", CONTENT];
-    }
-    
-    // Build string
-    str = [NSString stringWithFormat:@"\n%@:%@ %@", obj_classname, obj_line, obj_content];
-    
-    return str;
-    
+    return [NSString stringWithString:content];
     
 }
 

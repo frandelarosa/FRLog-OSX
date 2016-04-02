@@ -24,6 +24,7 @@
 
 // Models
 #import "FRLogServerDataDefault.h"
+#import "FRLogServerDataURL.h"
 
 @implementation MainViewController
 
@@ -55,7 +56,7 @@
 
 - (void)initVars {
     
-    dataSource = [NSMutableArray new];
+    self.dataSource = [NSMutableArray new];
     
 }
 
@@ -67,12 +68,12 @@
 - (void)onServer:(FRLogServer *)server withStatus:(FRLogServerState)state withError:(NSError *)error {
     
     if (state == FRLogServerStateRunning){
-        
-        [self addText:@"=== SERVER RUNNING ON PORT 1283 ===" withHexColor:@"FFFFFF"];
+
+        NSLog(@"=== SERVER RUNNING ON PORT 1283 ===");
         
     }else if (state == FRLogServerStateStopped){
         
-        [self addText:@"=== ERROR STARTING SERVER ===" withHexColor:@"EC1A1A"];
+        NSLog(@"=== ERROR STARTING SERVER ===");
         
     }
     
@@ -80,28 +81,25 @@
 
 - (void)onServer:(FRLogServer *)server readData:(id)datatype {
     
-    if ([datatype isKindOfClass:[FRLogServerDataDefault class]]){
-        
-        [self parseDefaultData:datatype];
-        
-    }else{
-        
-        [self addText:@"Data type not supported" withHexColor:@"c81a1a"];
-    }
+    [self.dataSource addObject:datatype];
+    
+    [self.tableView reloadData];
+    [self.tableView sizeLastColumnToFit];
+    
+    if ([self.dataSource count] > 0)
+        [self.tableView scrollRowToVisible:[self.dataSource count] - 1];
     
     
 }
 
 
 #pragma mark -
-#pragma mark Parse Objects
+#pragma mark TableView
 #pragma mark -
 
-- (void)parseDefaultData:(FRLogServerDataDefault *)data {
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
     
-    NSString *dataParsed = [FRObjectParser parseDefaultData:data];
-    
-    [self addText:dataParsed withHexColor:COLOR_INFO];
+    NSInteger numRows = 0;
     
     /*
     
@@ -152,7 +150,6 @@
     
 }
 
-/*
 
 #pragma mark -
 #pragma mark TableView
