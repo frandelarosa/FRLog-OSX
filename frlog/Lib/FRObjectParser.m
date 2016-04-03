@@ -23,7 +23,13 @@
 
 + (NSString *)parseDefaultData:(FRLogServerDataDefault *)data {
     
-    return [NSString stringWithString:data.obj_content];
+    NSMutableString *finalString = [[NSMutableString alloc] initWithString:@"\n"];
+    
+    [finalString appendString:data.obj_classname];
+    [finalString appendString:[NSString stringWithFormat:@":%@", data.obj_line]];
+    [finalString appendString:[NSString stringWithFormat:@" %@", data.obj_content]];
+    
+    return [NSString stringWithString:finalString];
     
 }
 

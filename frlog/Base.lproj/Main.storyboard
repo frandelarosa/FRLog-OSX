@@ -684,10 +684,10 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="backgroundColor" red="0.062105442910000003" green="0.083491311380000002" blue="0.1129064078" alpha="1" colorSpace="calibratedRGB"/>
                                             <size key="minSize" width="879" height="394"/>
-                                            <size key="maxSize" width="879" height="10000000"/>
+                                            <size key="maxSize" width="896" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="879" height="394"/>
-                                            <size key="maxSize" width="879" height="10000000"/>
+                                            <size key="maxSize" width="896" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -728,11 +728,6 @@
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-                <arrayController objectClassName="FRLogServerDataURL" id="oOB-eU-unJ">
-                    <declaredKeys>
-                        <string>obj_type</string>
-                    </declaredKeys>
-                </arrayController>
             </objects>
             <point key="canvasLocation" x="75" y="828"/>
         </scene>

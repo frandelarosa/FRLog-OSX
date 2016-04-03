@@ -14,6 +14,9 @@
 #define FRLOG_OBJ_TYPEURL   @"URL"
 #define FRLOG_OBJ_TYPERROR  @"Error"
 
+#define FRLOG_MSG_RUNNING   @"=== SERVER RUNNING ON PORT 1283 ==="
+#define FRLOG_MSG_ERROR     @"=== ERROR STARTING SERVER ON PORT 1283 ==="
+
 #import "MainViewController.h"
 
 // Lib
@@ -56,7 +59,7 @@
 
 - (void)initVars {
     
-    self.dataSource = [NSMutableArray new];
+    _dataSource = [NSMutableArray new];
     
 }
 
@@ -69,11 +72,11 @@
     
     if (state == FRLogServerStateRunning){
 
-        NSLog(@"=== SERVER RUNNING ON PORT 1283 ===");
+        [self addText:FRLOG_MSG_RUNNING withHexColor:@"FFFFFF"];
         
     }else if (state == FRLogServerStateStopped){
         
-        NSLog(@"=== ERROR STARTING SERVER ===");
+        [self addText:FRLOG_MSG_ERROR withHexColor:@"D2290D"];
         
     }
     
@@ -81,45 +84,10 @@
 
 - (void)onServer:(FRLogServer *)server readData:(id)datatype {
     
-    [self.dataSource addObject:datatype];
+    NSString *objParsed = [FRObjectParser parseDefaultData:datatype];
     
-    [self.tableView reloadData];
-    [self.tableView sizeLastColumnToFit];
+    [self addText:objParsed withHexColor:@"336699"];
     
-    if ([self.dataSource count] > 0)
-        [self.tableView scrollRowToVisible:[self.dataSource count] - 1];
-    
-    
-}
-
-
-#pragma mark -
-#pragma mark TableView
-#pragma mark -
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    
-    NSInteger numRows = 0;
-    
-    /*
-    
-    switch([data.obj_type integerValue]){
-            
-        // INFO
-        case 2:
-            [self addText:dataParsed withHexColor:COLOR_INFO];
-            break;
-            
-        // DEFAULT
-        default:
-            [self addText:dataParsed withHexColor:COLOR_DEFAULT];
-            break;
-    }
-     */
-    
-    [dataSource addObject:data];
-    
-
 }
 
 
@@ -151,105 +119,5 @@
 }
 
 
-#pragma mark -
-#pragma mark TableView
-#pragma mark -
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-    
-    NSInteger numRows = 0;
-    
-    if (dataSource && [dataSource count] > 0){
-        numRows = [dataSource count];
-    }
-    
-    return numRows;
-    
-}
-
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
-    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
-
-    // Data
-    if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_TYPE]) {
-        
-        return [self setColumnType:logObj.obj_type];
-        
-    }else if ([tableColumn.identifier isEqualToString:FRLOG_OBJ_CLASSLINE]) {
-        
-        return [NSString stringWithFormat:@"%@:%@", logObj.obj_classname, logObj.obj_line];
-        
-    }else {
-        
-        return logObj.obj_content;
-        
-    }
-    
-}
- */
-
-/*
-
-- (NSCell *)tableView:(NSTableView *)tableView dataCellForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-    
-    NSTextFieldCell *cell = [tableColumn dataCell];
-    
-    FRLogServerDataDefault *logObj = (FRLogServerDataDefault *)[dataSource objectAtIndex:row];
-    
-    [cell setDrawsBackground:YES];
-    
-    if (row % 2){
-        [cell setBackgroundColor:[FRTextColor getColorByHexColor:@"e0e0e0" withAlpha:1]];
-    }else {
-        [cell setBackgroundColor:[NSColor whiteColor]];
-    }
-    
-*/
-    /******************
-     Text Color
-    *******************/
-
-/*
-    switch([logObj.obj_type integerValue]){
-        case 2: // Info
-            [cell setTextColor:[FRTextColor getColorByHexColor:@"3b8b3e" withAlpha:1]];
-            break;
-    }
-    
-    return cell;
-    
-}
-
-#pragma mark -
-#pragma mark Column Behaviour
-#pragma mark -
-
-- (NSString *)setColumnType:(NSString *)obj_type {
-    
-    NSString *columnName;
-    
-    switch ([obj_type integerValue]) {
-            
-        default:
-        case 1: // URL
-            columnName = FRLOG_OBJ_TYPEURL;
-            break;
-            
-        case 2: // Info
-            columnName = FRLOG_OBJ_TYPEINFO;
-            break;
-            
-        case 3: // Error
-            columnName = FRLOG_OBJ_TYPERROR;
-            break;
-            
-    }
-    
-    return columnName;
-    
-}
-
-*/
 
 @end

@@ -12,13 +12,13 @@
 #import "FRLogServer.h"
 #import "FRTextView.h"
 
-@interface MainViewController : NSViewController <FRLogServerDelegate, NSTableViewDataSource, NSTableViewDelegate> {
+@interface MainViewController : NSViewController <FRLogServerDelegate> {
     
     FRLogServer *server;
-    NSPredicate *filterPredicate;
-    
+    NSMutableArray *_dataSource;
     
 }
+
 @property (unsafe_unretained) IBOutlet FRTextView *console;
 
 @end

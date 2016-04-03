@@ -62,8 +62,8 @@
 - (void)udpSocket:(GCDAsyncUdpSocket *)sock didReceiveData:(NSData *)data fromAddress:(NSData *)address withFilterContext:(id)filterContext {
     
     // Decode data
-    NSError* error;
-    NSDictionary* json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
+    NSError *error;
+    NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
     // Type
     if (json != nil && ![json isEqualTo:[NSNull null]]){
@@ -71,8 +71,8 @@
         //NSLog(@"JSON: %@", json);
         
         // Get object type
-        NSInteger objectType = [json[@"type"] integerValue];
-        NSArray *jsonArr     = [NSArray arrayWithObject:json[@"log"]];
+        NSInteger objectType = [json[@"obj_type"] integerValue];
+        NSArray *jsonArr     = [NSArray arrayWithObject:json];
         
         switch(objectType){
                 
