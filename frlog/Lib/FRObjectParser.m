@@ -25,8 +25,16 @@
     
     NSMutableString *finalString = [[NSMutableString alloc] initWithString:@"\n"];
     
+    // Date
+    [finalString appendString:data.obj_date];
+    
+    // Classname
     [finalString appendString:data.obj_classname];
+    
+    // Line
     [finalString appendString:[NSString stringWithFormat:@":%@", data.obj_line]];
+    
+    // Content
     [finalString appendString:[NSString stringWithFormat:@" %@", data.obj_content]];
     
     return [NSString stringWithString:finalString];
@@ -40,11 +48,18 @@
 
 + (NSString *)parseURLData:(FRLogServerDataURL *)data {
     
-    NSMutableString *content = [NSMutableString new];
+    NSMutableString *finalString = [[NSMutableString alloc] initWithString:@"\n"];
     
-    [content appendString:[NSString stringWithFormat:@"%@", data.obj_url]];
+    // Date
+    [finalString appendString:data.obj_date];
     
-    return [NSString stringWithString:content];
+    // Request Name
+    [finalString appendString:[NSString stringWithFormat:@" --- %@ --- ", [data.obj_requestname uppercaseString]]];
+    
+    // URL
+    [finalString appendString:[NSString stringWithFormat:@" %@", data.obj_url]];
+    
+    return [NSString stringWithString:finalString];
     
 }
 

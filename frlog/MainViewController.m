@@ -84,9 +84,27 @@
 
 - (void)onServer:(FRLogServer *)server readData:(id)datatype {
     
-    NSString *objParsed = [FRObjectParser parseDefaultData:datatype];
+    NSString *objParsed = nil;
     
-    [self addText:objParsed withHexColor:@"336699"];
+    NSInteger objType  = [[datatype valueForKey:@"obj_type"] integerValue];
+    NSString *colorStr = @"";
+    
+    switch(objType){
+            
+        // URL
+        case FRLSDURL:
+            colorStr  = @"0CBD55";
+            objParsed = [FRObjectParser parseURLData:datatype];
+            break;
+            
+        // Plain Text
+        case FRLSDDefault:
+            colorStr  = @"FFFFFF";
+            objParsed = [FRObjectParser parseDefaultData:datatype];
+            break;
+    }
+    
+    [self addText:objParsed withHexColor:colorStr];
     
 }
 
